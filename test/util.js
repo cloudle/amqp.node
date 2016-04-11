@@ -76,7 +76,7 @@ function runServer(socket, run) {
     }
   }
 
-  function await(method) {
+  function awaitExec(method) {
     return function() {
       var d = defer();
       if (method) {
@@ -98,7 +98,7 @@ function runServer(socket, run) {
       return d.promise;
     };
   }
-  run(send, await);
+  run(send, awaitExec);
   return frames;
 }
 
